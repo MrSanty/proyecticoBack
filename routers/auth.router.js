@@ -5,6 +5,6 @@ import { loginController } from '../controllers/auth.controller.js';
 
 const authRouter = Express.Router();
 
-authRouter.post( '', validateLogin, requestMiddleware, loginController );
+authRouter.post( '/', validateLogin, requestMiddleware, loginController );
 
 export default authRouter;
