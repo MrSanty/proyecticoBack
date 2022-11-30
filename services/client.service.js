@@ -4,7 +4,7 @@ import petSchema from "../models/pet.model.js";
 export const listPetsByOwnerService = async ( userId ) => {
   try {
     const owner = await clientModel.findOne({ _id: userId }).populate('pets');
-    const pets = owner.pets.map( ({ code, name, type }) => ({ code, name, type }) ); 
+    const pets = owner.pets.map( ({ code, age, name, type }) => ({ code, age, name, type }) ); 
     return pets;
   } catch ({ message }) {
     throw new Error( message );
@@ -55,7 +55,7 @@ export const deletePetOwnerService = async ( userId, petId ) => {
     if ( !pet ) throw new Error('Mascota no encontrados');
 
     pet.owner = null;
-    owner.pets = owner.pets.filter( pet => pet._id !== pet );
+    owner.pets = owner.pets.filter( p => p.toString() !== pet._id.toString() );
     await pet.save();
     await owner.save();
     return true;

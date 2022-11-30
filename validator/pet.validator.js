@@ -9,11 +9,6 @@ const uniquePetCode = async ( code ) => {
 };
 
 export const validateCreatePet = [
-  check( 'code' )
-    .exists().withMessage( 'El código de la mascota es requerido' )
-    .isNumeric().withMessage( 'El código de la mascota debe ser numérico' )
-    .custom( uniquePetCode ),
-
   check( "name" )
     .exists().withMessage( "El nombre es requerido" )
     .isLength({ min: 2 }).withMessage( "El nombre de la mascota debe tener al menos 2 caracteres" ),

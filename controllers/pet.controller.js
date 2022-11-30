@@ -11,9 +11,9 @@ export const getAllPetsWithoutOwnerController = async ( req, res ) => {
   }
 };
 
-export const createPetController = async ( { body: { code, name, age, type } }, res ) => {
+export const createPetController = async ( { body: { name, age, type } }, res ) => {
   try {
-    const pet = await createPetService({ code, name, age, type });
+    const pet = await createPetService({ name, age, type });
     res.status( 201 ).json({ ok: true });
   } catch ({ message }) {
     res.status( 500 ).json({ message: 'Error en el servidor, por favor contacte al desarrollador' });
