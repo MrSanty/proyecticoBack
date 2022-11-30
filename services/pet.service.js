@@ -4,7 +4,8 @@ export const getAllPetsWithoutOwnerService = async () => {
   try {
     const pets = await petSchema.find({ owner: null });
     if ( !pets.length ) throw new Error('No hay mascotas');
-    return pets;
+    const petsData = pets.map( ({ code, name, type }) => ({ code, name, type }) );
+    return petsData;
   } catch ({ message }) {
     throw new Error( message );
   }

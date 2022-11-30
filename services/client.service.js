@@ -4,7 +4,8 @@ import petSchema from "../models/pet.model.js";
 export const listPetsByOwnerService = async ( userId ) => {
   try {
     const owner = await clientModel.findOne({ _id: userId }).populate('pets');
-    return owner.pets;
+    const pets = owner.pets.map( ({ code, name, type }) => ({ code, name, type }) ); 
+    return pets;
   } catch ({ message }) {
     throw new Error( message );
   }
