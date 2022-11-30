@@ -1,4 +1,4 @@
-import { generateToken, verifyToken } from "../config/jwt.config.js";
+import { generateToken } from "../config/jwt.config.js";
 import clientModel from "../models/client.model.js";
 
 

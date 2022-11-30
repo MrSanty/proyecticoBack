@@ -11,8 +11,6 @@ export const verifyToken = ( token ) => {
   return Jwt.verify( token, JWT_SECRET );
 };
 
-export const refreshToken = ( token ) => {
-  const { _id, iat, exp } = verifyToken( token );
-  const payload = { _id, iat, exp };
+export const refreshToken = ( payload ) => {
   return generateToken( payload );
 }
