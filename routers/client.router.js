@@ -1,8 +1,8 @@
 import Express from 'express';
-import { adoptPetController, listPetsByOwnerController, updateOwnerPetNameController, deletePetOwnerController } from '../controllers/client.crontroller.js';
+import { validateUpdateOwnerNamePet } from '../validator/client.validator.js';
 import { verifyTokenMiddleware } from '../middlewares/auth.middleware.js';
 import { requestMiddleware } from '../middlewares/request.middleware.js';
-import { validateUpdateOwnerNamePet } from '../validator/client.validator.js';
+import { adoptPetController, listPetsByOwnerController, updateOwnerPetNameController, deletePetOwnerController } from '../controllers/client.crontroller.js';
 
 const clientRouter = Express.Router();
 

@@ -13,6 +13,6 @@ export const loginService = async ( user ) => {
       return generateToken({ _id: client._id, code: client.code, username: client.username });
     }
   } catch ( error ) {
-    throw error;
+    throw new Error('Hubo un error, por favor contacte al desarrollador')
   }
 }; 
